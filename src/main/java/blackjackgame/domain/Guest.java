@@ -17,8 +17,13 @@ public class Guest {
 
     public int getScore() {
         int totalScore = 0;
+        boolean hasAce = false;
         for (Card card : cards) {
+            hasAce |= (card.getCardValue().equals(CardValue.ACE));
             totalScore += card.getScore();
+        }
+        if (hasAce && totalScore <= 11) {
+            totalScore += 10;
         }
         return totalScore;
     }
@@ -27,8 +32,12 @@ public class Guest {
         cards.add(card);
     }
 
-    public Collection<Object> getCards() {
-        return Collections.unmodifiableList(cards);
+    public String getName() {
+        return name.getName();
+    }
+
+    public List<Card> getCards() {
+        return List.copyOf(cards);
     }
 
     @Override

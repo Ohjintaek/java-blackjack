@@ -35,6 +35,6 @@ public class Guests {
     }
 
     public List<Guest> getGuests() {
-        return Collections.unmodifiableList(guests);
+        return List.copyOf(guests);
     }
 }

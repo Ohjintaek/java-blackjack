@@ -16,6 +16,10 @@ public class Name {
         this.name = trimmedName;
     }
 
+    public String getName() {
+        return name;
+    }
+
     private void validateBlank(String name) {
         if (name.isBlank()) {
             throw new IllegalArgumentException(ERROR_NAME_BLANK_MSG);
